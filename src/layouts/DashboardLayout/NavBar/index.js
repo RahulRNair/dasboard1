@@ -23,53 +23,79 @@ import {
   Users as UsersIcon
 } from 'react-feather';
 import NavItem from './NavItem';
+import {TrendingUp, Devices } from '@material-ui/icons';
 
 const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
+  avatar: '/static/images/avatars/user.png',
+  name: 'User1'
 };
 
 const items = [
   {
     href: '/app/dashboard',
     icon: BarChartIcon,
-    title: 'Dashboard'
+    title: 'Dashboard',
+    submenu: [],
+  },
+    {
+    href: '/app/account',
+    icon: TrendingUp,
+    title: 'Entity',
+    submenu: [],
   },
   {
     href: '/app/customers',
     icon: UsersIcon,
-    title: 'Customers'
+    title: 'Users',
+    submenu: [
+      {
+        href: '/app/customers',
+        icon: 'SupervisorAccount',
+        title: 'Role'
+      },
+      {
+        href: '/app/customers',
+        icon: 'Lock',
+        title: 'Permision'
+      },
+      {
+        href: '/app/customers',
+        icon: 'PersonAdd',
+        title: 'User'
+      }
+        
+    ]
   },
+
   {
     href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'Account'
+    icon: Devices,
+    title: 'Devices',
+    submenu: [],
   },
   {
     href: '/app/settings',
     icon: SettingsIcon,
-    title: 'Settings'
+    title: 'Settings',
+    submenu: [],
   },
   {
     href: '/login',
     icon: LockIcon,
-    title: 'Login'
+    title: 'Login',
+    submenu: [],
   },
   {
     href: '/register',
     icon: UserPlusIcon,
-    title: 'Register'
+    title: 'Register',
+    submenu: [],
   },
   {
     href: '/404',
     icon: AlertCircleIcon,
-    title: 'Error'
+    title: 'Error',
+    submenu: [],
   }
 ];
 
@@ -125,12 +151,6 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         >
           {user.name}
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
-          {user.jobTitle}
-        </Typography>
       </Box>
       <Divider />
       <Box p={2}>
@@ -141,44 +161,13 @@ const NavBar = ({ onMobileClose, openMobile }) => {
               key={item.title}
               title={item.title}
               icon={item.icon}
+              submenu={item.submenu}
             />
           ))}
         </List>
       </Box>
       <Box flexGrow={1} />
-      <Box
-        p={2}
-        m={2}
-        bgcolor="background.dark"
-      >
-        <Typography
-          align="center"
-          gutterBottom
-          variant="h4"
-        >
-          Need more?
-        </Typography>
-        <Typography
-          align="center"
-          variant="body2"
-        >
-          Upgrade to PRO version and access 20 more screens
-        </Typography>
-        <Box
-          display="flex"
-          justifyContent="center"
-          mt={2}
-        >
-          <Button
-            color="primary"
-            component="a"
-            href="https://react-material-kit.devias.io"
-            variant="contained"
-          >
-            See PRO version
-          </Button>
-        </Box>
-      </Box>
+  
     </Box>
   );
 

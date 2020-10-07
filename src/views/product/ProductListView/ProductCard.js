@@ -13,6 +13,9 @@ import {
 } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import { Devices, CastConnected, ThumbUpAlt } from '@material-ui/icons';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
   statsIcon: {
     marginRight: theme.spacing(1)
-  }
+  },
+   large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
 }));
 
 const ProductCard = ({ className, product, ...rest }) => {
@@ -46,6 +53,7 @@ const ProductCard = ({ className, product, ...rest }) => {
             alt="Product"
             src={product.media}
             variant="square"
+            className={classes.large}
           />
         </Box>
         <Typography
@@ -70,13 +78,13 @@ const ProductCard = ({ className, product, ...rest }) => {
         <Grid
           container
           justify="space-between"
-          spacing={2}
+          spacing={3}
         >
           <Grid
             className={classes.statsItem}
             item
           >
-            <AccessTimeIcon
+            <Devices
               className={classes.statsIcon}
               color="action"
             />
@@ -85,14 +93,30 @@ const ProductCard = ({ className, product, ...rest }) => {
               display="inline"
               variant="body2"
             >
-              Updated 2hr ago
+             Devices: {product.devices}
+            </Typography>
+          </Grid>
+           <Grid
+            className={classes.statsItem}
+            item
+          >
+            <ThumbUpAlt
+              className={classes.statsIcon}
+              color="action"
+            />
+            <Typography
+              color="textSecondary"
+              display="inline"
+              variant="body2"
+            >
+             Acquired: {product.acquired}
             </Typography>
           </Grid>
           <Grid
             className={classes.statsItem}
             item
           >
-            <GetAppIcon
+            <CastConnected
               className={classes.statsIcon}
               color="action"
             />
@@ -101,9 +125,7 @@ const ProductCard = ({ className, product, ...rest }) => {
               display="inline"
               variant="body2"
             >
-              {product.totalDownloads}
-              {' '}
-              Downloads
+             Connected: {product.connected}
             </Typography>
           </Grid>
         </Grid>

@@ -4,49 +4,56 @@ export default [
   {
     id: uuid(),
     createdAt: '27/03/2019',
-    description: 'Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.',
-    media: '/static/images/products/product_1.png',
-    title: 'Dropbox',
-    totalDownloads: '594'
+    description: 'A piece of hardware with the sensors which do data transmission when connected to the internet.',
+    media: '/static/images/products/product5.png',
+    title: 'Device',
+    totalDownloads: '594',
+     devices:10,
+    connected:10,
+    acquired: 0
   },
   {
     id: uuid(),
     createdAt: '31/03/2019',
-    description: 'Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.',
-    media: '/static/images/products/product_2.png',
-    title: 'Medium Corporation',
-    totalDownloads: '625'
+    description: 'A device that facilitates the connection between a range of of data sources and the cloud. It also collects the data from different child devices and send it to the IoT Hub.',
+    media: '/static/images/products/product1.png',
+    title: 'Gateway Device',
+    totalDownloads: '625',
+     devices:10,
+    connected:10,
+    acquired: 0
   },
   {
     id: uuid(),
     createdAt: '03/04/2019',
-    description: 'Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.',
-    media: '/static/images/products/product_3.png',
-    title: 'Slack',
-    totalDownloads: '857'
+    description: 'Certificates secure device communication through data encryption and other methods as well.',
+    media: '/static/images/products/product2.png',
+    title: 'Certificates',
+    totalDownloads: '857',
+     devices:10,
+    connected:10,
+    acquired: 0
   },
   {
     id: uuid(),
     createdAt: '04/04/2019',
-    description: 'Lyft is an on-demand transportation company based in San Francisco, California.',
-    media: '/static/images/products/product_4.png',
-    title: 'Lyft',
-    totalDownloads: '406'
+    description: 'A device where analytics happens in real-time at the device. It sends data to the parent device at fixed time intervals.',
+    media: '/static/images/products/product3.png',
+    title: 'Edge Device',
+    totalDownloads: '406',
+     devices:10,
+    connected:10,
+    acquired: 0
   },
   {
     id: uuid(),
     createdAt: '04/04/2019',
-    description: 'GitHub is a web-based hosting service for version control of code using Git.',
-    media: '/static/images/products/product_5.png',
-    title: 'GitHub',
-    totalDownloads: '835'
-  },
-  {
-    id: uuid(),
-    createdAt: '04/04/2019',
-    description: 'Squarespace provides software as a service for website building and hosting. Headquartered in NYC.',
-    media: '/static/images/products/product_6.png',
-    title: 'Squarespace',
-    totalDownloads: '835'
+    description: 'A device that not only serves as the bridge between sensors and the IoT Hub, but also does data aggregation and pre-processing before sending.',
+    media: '/static/images/products/product4.png',
+    title: 'Edge Gateway Device',
+    totalDownloads: '835',
+    devices:10,
+    connected:10,
+    acquired: 0
   }
 ];

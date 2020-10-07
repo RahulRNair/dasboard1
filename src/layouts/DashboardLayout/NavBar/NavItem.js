@@ -5,9 +5,15 @@ import PropTypes from 'prop-types';
 import {
   Button,
   ListItem,
-  makeStyles
+  makeStyles,
+  Collapse,
+  List,
+  ListItemIcon,
+  ListItemText
 } from '@material-ui/core';
-
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import {PersonAdd, Lock, SupervisorAccount, TrendingUp } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
   item: {
     display: 'flex',
@@ -45,15 +51,34 @@ const NavItem = ({
   href,
   icon: Icon,
   title,
+  submenu,
   ...rest
 }) => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
 
+  const handleClick = () => {
+    setOpen(!open);
+  };
+  const renderSwitch = (param) => {
+  switch(param) {
+    case 'PersonAdd':
+      return <PersonAdd />;
+    case 'Lock':
+      return <Lock />;
+    case 'SupervisorAccount':
+      return <SupervisorAccount />;
+    default:
+      return <SupervisorAccount />;
+  }
+};
   return (
+    <div>
     <ListItem
       className={clsx(classes.item, className)}
       disableGutters
       {...rest}
+      onClick={handleClick}
     >
       <Button
         activeClassName={classes.active}
@@ -71,7 +96,24 @@ const NavItem = ({
           {title}
         </span>
       </Button>
+      {open ? submenu.length>0 ? <ExpandLess /> : '' : submenu.length>0 ? <ExpandMore /> : ''}
     </ListItem>
+    {submenu.length>0 ?
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+        {submenu.map((item) => (
+            <ListItem button className={classes.nested}>
+            <ListItemIcon>
+            {renderSwitch(item.icon)} 
+            </ListItemIcon>
+            <ListItemText primary={item.title} />
+          </ListItem>
+          ))}
+         
+        </List>
+      </Collapse>
+      :'' }
+    </div>
   );
 };
 
@@ -79,7 +121,8 @@ NavItem.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
   icon: PropTypes.elementType,
-  title: PropTypes.string
+  title: PropTypes.string,
+  submenu: PropTypes.object
 };
 
 export default NavItem;

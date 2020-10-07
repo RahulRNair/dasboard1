@@ -129,12 +129,7 @@ const Results = ({ className, customers, ...rest }) => {
                       alignItems="center"
                       display="flex"
                     >
-                      <Avatar
-                        className={classes.avatar}
-                        src={customer.avatarUrl}
-                      >
-                        {getInitials(customer.name)}
-                      </Avatar>
+                  
                       <Typography
                         color="textPrimary"
                         variant="body1"

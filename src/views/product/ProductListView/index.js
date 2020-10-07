@@ -33,7 +33,7 @@ const ProductList = () => {
       title="Products"
     >
       <Container maxWidth={false}>
-        <Toolbar />
+     
         <Box mt={3}>
           <Grid
             container
@@ -43,7 +43,7 @@ const ProductList = () => {
               <Grid
                 item
                 key={product.id}
-                lg={4}
+                lg={6}
                 md={6}
                 xs={12}
               >
